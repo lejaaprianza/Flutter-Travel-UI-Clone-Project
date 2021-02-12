@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:travel_ui_projects/models/destination_model.dart';
 
 class DestinationCarousel extends StatelessWidget {
   @override
@@ -29,6 +30,40 @@ class DestinationCarousel extends StatelessWidget {
                 ),
               )
             ],
+          ),
+        ),
+        Container(
+          height: 300,
+          color: Colors.blue,
+          child: ListView.builder(
+            scrollDirection: Axis.horizontal,
+            itemCount: destinations.length,
+            itemBuilder: (BuildContext context, int index) {
+              Destination destination = destinations[index];
+              return Container(
+                margin: EdgeInsets.all(10),
+                width: 210,
+                color: Colors.red,
+                child: Stack(
+                  children: [
+                    Container(
+                      height: 120,
+                      width: 200,
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(10)),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text('${destination.activities.length} activities'),
+                          Text(destination.description),
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+              );
+            },
           ),
         )
       ],
