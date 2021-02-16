@@ -102,6 +102,30 @@ class DestinationCarousel extends StatelessWidget {
                               width: 180,
                               fit: BoxFit.cover,
                             ),
+                          ),
+                          Column(
+                            children: [
+                              // menit 26.36
+                              Text(
+                                destination.city,
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 24,
+                                  fontWeight: FontWeight.w600,
+                                  letterSpacing: 1.2,
+                                ),
+                              ),
+                              Row(
+                                children: [
+                                  Text(
+                                    destination.country,
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
                           )
                         ],
                       ),
