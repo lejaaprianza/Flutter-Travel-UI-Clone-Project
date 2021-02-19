@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:travel_ui_projects/models/destination_model.dart';
 
 class DestinationCarousel extends StatelessWidget {
@@ -34,7 +35,7 @@ class DestinationCarousel extends StatelessWidget {
         ),
         Container(
           height: 300,
-          color: Colors.blue,
+          // color: Colors.blue,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
             itemCount: destinations.length,
@@ -43,7 +44,7 @@ class DestinationCarousel extends StatelessWidget {
               return Container(
                 margin: EdgeInsets.all(10),
                 width: 210,
-                color: Colors.red,
+                // color: Colors.red,
                 child: Stack(
                   alignment: Alignment.topCenter,
                   children: [
@@ -103,29 +104,42 @@ class DestinationCarousel extends StatelessWidget {
                               fit: BoxFit.cover,
                             ),
                           ),
-                          Column(
-                            children: [
-                              // menit 26.36
-                              Text(
-                                destination.city,
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 24,
-                                  fontWeight: FontWeight.w600,
-                                  letterSpacing: 1.2,
+                          Positioned(
+                            left: 10.0,
+                            bottom: 10.0,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                // menit 26.36
+                                Text(
+                                  destination.city,
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 24,
+                                    fontWeight: FontWeight.w600,
+                                    letterSpacing: 1.2,
+                                  ),
                                 ),
-                              ),
-                              Row(
-                                children: [
-                                  Text(
-                                    destination.country,
-                                    style: TextStyle(
+                                Row(
+                                  children: [
+                                    Icon(
+                                      FontAwesomeIcons.locationArrow,
+                                      size: 10.0,
                                       color: Colors.white,
                                     ),
-                                  ),
-                                ],
-                              ),
-                            ],
+                                    SizedBox(
+                                      width: 5.0,
+                                    ),
+                                    Text(
+                                      destination.country,
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
                           )
                         ],
                       ),
