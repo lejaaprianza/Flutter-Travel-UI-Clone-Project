@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:travel_ui_projects/models/destination_model.dart';
 
-class DestinationCarousel extends StatelessWidget {
+import 'package:travel_ui_projects/models/hotel_model.dart';
+
+//menit 30.43
+
+class HotelCarousel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -13,7 +15,7 @@ class DestinationCarousel extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                'Top Destinations',
+                'Exclusive Hotels',
                 style: TextStyle(
                     fontSize: 22.0,
                     fontWeight: FontWeight.bold,
@@ -40,7 +42,7 @@ class DestinationCarousel extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             itemCount: destinations.length,
             itemBuilder: (BuildContext context, int index) {
-              Destination destination = destinations[index];
+              Hotel hotel = hotels[index];
               return Container(
                 margin: EdgeInsets.all(10),
                 width: 210,
@@ -95,55 +97,14 @@ class DestinationCarousel extends StatelessWidget {
                               blurRadius: 6.0,
                             )
                           ]),
-                      child: Stack(
-                        children: [
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(20.0),
-                            child: Image(
-                              image: AssetImage(destination.imageUrl),
-                              height: 180,
-                              width: 180,
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                          Positioned(
-                            left: 10.0,
-                            bottom: 10.0,
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                // menit 28.00
-                                Text(
-                                  destination.city,
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 24,
-                                    fontWeight: FontWeight.w600,
-                                    letterSpacing: 1.2,
-                                  ),
-                                ),
-                                Row(
-                                  children: [
-                                    Icon(
-                                      FontAwesomeIcons.locationArrow,
-                                      size: 10.0,
-                                      color: Colors.white,
-                                    ),
-                                    SizedBox(
-                                      width: 5.0,
-                                    ),
-                                    Text(
-                                      destination.country,
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          )
-                        ],
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(20.0),
+                        child: Image(
+                          image: AssetImage(hotel.imageUrl),
+                          height: 180,
+                          width: 180,
+                          fit: BoxFit.cover,
+                        ),
                       ),
                     ),
                   ],
