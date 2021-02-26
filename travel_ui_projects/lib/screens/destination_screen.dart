@@ -28,11 +28,14 @@ class _DestinationScreenState extends State<DestinationScreen> {
                         blurRadius: 6.0,
                       )
                     ]),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(30.0),
-                  child: Image(
-                    image: AssetImage(widget.destination.imageUrl),
-                    fit: BoxFit.cover,
+                child: Hero(
+                  tag: widget.destination.imageUrl,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(30.0),
+                    child: Image(
+                      image: AssetImage(widget.destination.imageUrl),
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
               ),
@@ -41,7 +44,6 @@ class _DestinationScreenState extends State<DestinationScreen> {
                     horizontal: 10.0, vertical: 40.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  // menit 43.41
                   children: [
                     IconButton(
                       icon: Icon(Icons.arrow_back),
@@ -66,6 +68,53 @@ class _DestinationScreenState extends State<DestinationScreen> {
                       ],
                     )
                   ],
+                ),
+              ),
+              Positioned(
+                left: 20,
+                bottom: 20,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      widget.destination.city,
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 35,
+                        fontWeight: FontWeight.w600,
+                        letterSpacing: 1.2,
+                      ),
+                    ),
+                    Row(
+                      children: [
+                        Icon(
+                          FontAwesomeIcons.locationArrow,
+                          size: 15.0,
+                          color: Colors.white,
+                        ),
+                        SizedBox(
+                          width: 5.0,
+                        ),
+                        Text(
+                          widget.destination.country,
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 20,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              Positioned(
+                bottom: 20,
+                right: 20,
+                child: Icon(
+                  Icons.location_on,
+                  color: Colors.white70,
+                  size: 25,
+                  //menit 47.27
                 ),
               )
             ],
